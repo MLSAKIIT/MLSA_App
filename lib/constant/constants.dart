@@ -65,3 +65,52 @@ Text text(
     ),
   );
 }
+
+/// Use [headingText] instead of [Text] for headings
+Text headingText(
+    String text, {
+      TextStyle? textStyle,
+      Color? color,
+      Color? backgroundColor,
+      double? fontSize,
+      FontWeight? fontWeight,
+      FontStyle? fontStyle,
+      double? letterSpacing,
+      double? wordSpacing,
+      TextBaseline? textBaseline,
+      double? height,
+      Locale? locale,
+      Paint? foreground,
+      Paint? background,
+      List<Shadow>? shadows,
+      List<FontFeature>? fontFeatures,
+      TextDecoration? decoration,
+      Color? decorationColor,
+      TextDecorationStyle? decorationStyle,
+      double? decorationThickness,
+    }) {
+  return Text(
+    text,
+    style: GoogleFonts.poppins(
+      textStyle: textStyle,
+      background: background,
+      backgroundColor: backgroundColor,
+      color: color,
+      decoration: decoration,
+      decorationColor: decorationColor,
+      decorationStyle: decorationStyle,
+      decorationThickness: decorationThickness,
+      fontFeatures: fontFeatures,
+      fontSize: fontSize,
+      fontStyle: fontStyle,
+      fontWeight: FontWeight.w600,
+      foreground: foreground,
+      height: height,
+      letterSpacing: letterSpacing,
+      locale: locale,
+      shadows: shadows,
+      textBaseline: textBaseline,
+      wordSpacing: wordSpacing,
+    ),
+  );
+}
