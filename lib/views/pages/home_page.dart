@@ -22,8 +22,8 @@ class HomePage extends StatelessWidget {
                 children: [
                   Image.asset(
                     'assets/mlsa_logo.png',
-                    width: 70,
-                    height: 70,
+                    width: width * 0.2,
+                    height: height * 0.08,
                   ),
                   GestureDetector(
                     // TODO: Implement navigate to QR screen
@@ -37,41 +37,44 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: height * 0.01,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: headingText(
                   'Ongoing Event',
-                  fontSize: 20,
+                  fontSize: height * 0.025,
                 ),
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: height * 0.02,
               ),
               Container(
                 width: width * 0.9,
-                height: height * 0.2,
+                height: height * 0.22,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(35),
                   color: Colors.grey[800],
                 ),
+
+                // TODO: Get data from api for ongoing event
                 child: Stack(
                   children: [
                     Positioned(
-                      top: 13,
-                      left: 7,
+                      top: verticalBlock * 2.3,
+                      left: horizontalBlock,
+                      right: horizontalBlock,
                       child: SvgPicture.asset(
                         'assets/home_page_container_background.svg',
                       ),
                     ),
                     Positioned(
-                      top: 30,
+                      top: verticalBlock * 7.5,
                       left: 35,
                       child: headingText(
                         'Eye Spy Squid',
-                        fontSize: 20,
+                        fontSize: height * 0.025,
                       ),
                     ),
                     Positioned(
@@ -79,7 +82,7 @@ class HomePage extends StatelessWidget {
                       left: 35,
                       child: text(
                         'AI/ML',
-                        fontSize: 15,
+                        fontSize: verticalBlock * 4,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
