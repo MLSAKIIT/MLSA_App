@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:mlsa_app/views/widgets/blogs_list_widget.dart';
+import 'package:mlsa_app/views/widgets/past_events_widget.dart';
 
 import '../../constant/constants.dart';
 
@@ -130,6 +131,10 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(
+                height: 20,
+              ),
+              ScrollablePastEvents(height: height * 0.13, width: width),
+              const SizedBox(
                 height: 30,
               ),
               Padding(
@@ -139,6 +144,7 @@ class HomePage extends StatelessWidget {
                   fontSize: 20,
                 ),
               ),
+              ScrollableBlogsList(height: height * 0.15, width: width)
             ],
           ),
         ),
