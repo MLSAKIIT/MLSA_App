@@ -26,6 +26,9 @@ class ScrollablePastEvents extends StatelessWidget {
                   Radius.circular(20),
                 ),
               ),
+              child: Stack(children: [
+                Image.asset('assets/mlsa_logo_big.png', fit: BoxFit.contain,),
+              ],),
             ),
             const SizedBox(
               width: 10,
@@ -39,6 +42,9 @@ class ScrollablePastEvents extends StatelessWidget {
                   Radius.circular(20),
                 ),
               ),
+              child: Stack(children: [
+                Image.asset('assets/mlsa_logo_big.png', fit: BoxFit.contain,),
+              ],),
             ),
             const SizedBox(
               width: 10,
@@ -52,6 +58,9 @@ class ScrollablePastEvents extends StatelessWidget {
                   Radius.circular(20),
                 ),
               ),
+              child: Stack(children: [
+                Image.asset('assets/mlsa_logo_big.png', fit: BoxFit.contain,),
+              ],),
             ),
           ],
         ));
