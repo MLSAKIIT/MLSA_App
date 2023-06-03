@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:mlsa_app/views/pages/about_page.dart';
+import 'package:mlsa_app/views/pages/coupons_page.dart';
+import 'package:mlsa_app/views/pages/profile_page.dart';
 import 'package:mlsa_app/views/widgets/blogs_list_widget.dart';
 import 'package:mlsa_app/views/widgets/past_events_widget.dart';
 
@@ -169,12 +173,31 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.grey[900],
         selectedItemColor: accentColor,
         unselectedItemColor: Colors.white,
+        onTap: (index) {
+          switch (index) {
+            case 0:
+              Get.to(HomePage());
+              break;
+            case 1:
+              Get.to(CouponsPage());
+              break;
+            case 2:
+              Get.to(AboutPage());
+              break;
+
+            case 3:
+              Get.to(ProfilePage());
+          }
+        },
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.event), label: 'Events'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.card_giftcard), label: 'Coupons'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.info_outline), label: 'About'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),

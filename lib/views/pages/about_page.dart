@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../constant/constants.dart';
+
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
 
@@ -10,17 +12,30 @@ class AboutPage extends StatelessWidget {
             child: Stack(
                 //(clipBehavior: Clip.none,
                 children: [
-          SizedBox(
-              height: 1000,
-              width: 500,
-              child: Image.asset(
-                'home_page_background.png',
-                fit: BoxFit.fitWidth,
-              )),
+          // Container(
+          //   height: double.infinity,
+          //   width: double.infinity,
+          //   decoration: const BoxDecoration(
+          //     image: DecorationImage(
+          //       image: AssetImage('assets/home_page_background.png'),
+          //     ),
+          //   ),
+          // ),
+          // Container(
+          //   height: 200,
+          //   width: width,
+          //   child: Image.asset(
+          //     'assets/gbm.png',
+          //     // height: 200,
+          //     // width: width,
+          //     fit: BoxFit.fitWidth,
+          //     alignment: Alignment.topCenter,
+          //   ),
+          // ),
           Image.asset(
             'assets/gbm.png',
             height: 200,
-            alignment: const Alignment(-1, -1),
+            alignment: Alignment(-1, -1),
           ),
           Positioned(
               top: MediaQuery.of(context).size.height / 4,
@@ -30,7 +45,7 @@ class AboutPage extends StatelessWidget {
                 height: 70,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('mlsalogo1.png'),
+                      image: AssetImage('assets/mlsalogo1.png'),
                       alignment: Alignment(0, -0.7)),
                   // border: Border.all(color: Colors.white54, width: 2),
                 ),
@@ -88,7 +103,7 @@ class AboutPage extends StatelessWidget {
                             color: Colors.grey.withOpacity(0.2),
                             borderRadius: BorderRadius.circular(20),
                             image: const DecorationImage(
-                                image: AssetImage('groups.png'),
+                                image: AssetImage('assets/groups.png'),
                                 alignment: Alignment(-0.75, -0.5)))),
                   ),
                   Padding(
@@ -109,7 +124,7 @@ class AboutPage extends StatelessWidget {
                           color: Colors.grey.withOpacity(0.2),
                           borderRadius: BorderRadius.circular(15),
                           image: const DecorationImage(
-                              image: AssetImage('mountain.png'),
+                              image: AssetImage('assets/mountain.png'),
                               alignment: Alignment(0, -0.5))),
                     ),
                   ),
@@ -118,24 +133,25 @@ class AboutPage extends StatelessWidget {
                       child: Container(
                         height: 100,
                         width: 140,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                          color: Colors.grey.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(15),
+                          image: const DecorationImage(
+                              image: AssetImage('assets/target.png'),
+                              alignment: Alignment(0.1, -0.5)),
+                        ),
                         child: Padding(
                             padding: const EdgeInsets.only(
                                 left: 15, right: 15, top: 65, bottom: 18),
                             child: Align(
                               alignment: const Alignment(0, -0.1),
                               child: Text(
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(color: Colors.cyan[200]),
-                                  'Our Goal '),
+                                'Our Goal ',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(color: Colors.cyan[200]),
+                              ),
                             )),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          color: Colors.grey.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(15),
-                          image: const DecorationImage(
-                              image: AssetImage('target.png'),
-                              alignment: Alignment(0.1, -0.5)),
-                        ),
                       ))
                 ]),
                 const Padding(
@@ -161,7 +177,7 @@ class AboutPage extends StatelessWidget {
                           color: Colors.grey.withOpacity(0.2),
                           borderRadius: BorderRadius.circular(12),
                           image: const DecorationImage(
-                              image: AssetImage('Technical.png'),
+                              image: AssetImage('assets/Technical.png'),
                               alignment: Alignment(0.1, -0.5)),
                         ),
                         padding: const EdgeInsets.all(6),
@@ -188,7 +204,7 @@ class AboutPage extends StatelessWidget {
                           color: Colors.grey.withOpacity(0.2),
                           borderRadius: BorderRadius.circular(12),
                           image: const DecorationImage(
-                              image: AssetImage('creative.png'),
+                              image: AssetImage('assets/creative.png'),
                               alignment: Alignment(0.1, -0.5)),
                         ),
                         padding: const EdgeInsets.all(6),
@@ -215,7 +231,7 @@ class AboutPage extends StatelessWidget {
                           color: Colors.grey.withOpacity(0.2),
                           borderRadius: BorderRadius.circular(12),
                           image: const DecorationImage(
-                              image: AssetImage('op.png'),
+                              image: AssetImage('assets/op.png'),
                               alignment: Alignment(0.1, -0.5)),
                         ),
                         padding: const EdgeInsets.all(6),
@@ -242,7 +258,7 @@ class AboutPage extends StatelessWidget {
                           color: Colors.grey.withOpacity(0.2),
                           borderRadius: BorderRadius.circular(12),
                           image: const DecorationImage(
-                              image: AssetImage('marketing.png'),
+                              image: AssetImage('assets/marketing.png'),
                               alignment: Alignment(0.1, -0.5)),
                         ),
                         padding: const EdgeInsets.all(6),
@@ -269,7 +285,7 @@ class AboutPage extends StatelessWidget {
                           color: Colors.grey.withOpacity(0.2),
                           borderRadius: BorderRadius.circular(12),
                           image: const DecorationImage(
-                              image: AssetImage('graphics.png'),
+                              image: AssetImage('assets/graphics.png'),
                               alignment: Alignment(0.1, -0.5)),
                         ),
                         padding: const EdgeInsets.all(6),
@@ -296,7 +312,7 @@ class AboutPage extends StatelessWidget {
                           color: Colors.grey.withOpacity(0.2),
                           borderRadius: BorderRadius.circular(12),
                           image: const DecorationImage(
-                              image: AssetImage('youtube.png'),
+                              image: AssetImage('assets/youtube.png'),
                               alignment: Alignment(0.1, -0.5)),
                         ),
                         padding: const EdgeInsets.all(6),

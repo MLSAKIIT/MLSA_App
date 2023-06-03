@@ -4,24 +4,24 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 import 'package:mlsa_app/constant/constants.dart';
 
-class eventPage extends StatelessWidget {
-  const eventPage({super.key});
+class EventPage extends StatelessWidget {
+  const EventPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: double.infinity,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/ongoing_event/background.png'),
-          fit: BoxFit.cover,
+    return SafeArea(
+      child: Container(
+        height: double.infinity,
+        width: double.infinity,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/ongoing_event/background.png'),
+            fit: BoxFit.cover,
+          ),
         ),
-      ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: SafeArea(
-          child: SingleChildScrollView(
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.only(
                   left: 20.0, right: 20.0, bottom: 20.0, top: 10),
@@ -41,13 +41,13 @@ class eventPage extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      height: 497,
-                      width: 351,
-                      decoration: BoxDecoration(
+                      height: height * 0.5,
+                      width: width * 0.8,
+                      decoration: const BoxDecoration(
                         image: DecorationImage(
                           image:
                               AssetImage('assets/ongoing_event/event_logo.png'),
-                          fit: BoxFit.fill,
+                          fit: BoxFit.contain,
                         ),
                       ),
                     ),
@@ -97,21 +97,25 @@ class eventPage extends StatelessWidget {
                   ]),
             ),
           ),
-        ),
-        bottomNavigationBar: Padding(
-          padding: EdgeInsets.only(bottom: 10, left: 20, right: 20, top: 10),
-          child: SizedBox(
-            height: 50,
-            width: 100,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
+          bottomNavigationBar: Padding(
+            padding:
+                const EdgeInsets.only(bottom: 10, left: 20, right: 20, top: 10),
+            child: SizedBox(
+              height: 50,
+              width: 100,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                onPressed: () {},
+                child: text(
+                  "Register Here",
+                  fontSize: 19,
                 ),
               ),
-              onPressed: () {},
-              child: Text("register herer"),
             ),
           ),
         ),

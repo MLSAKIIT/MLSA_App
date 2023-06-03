@@ -1,23 +1,63 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
-//import 'package:google_fonts/google_fonts.dart';
 
-class Profile_Page extends StatefulWidget {
-  const Profile_Page({Key? key}) : super(key: key);
+// class ProfilePage extends StatefulWidget {
+//   const ProfilePage({Key? key}) : super(key: key);
+
+//   @override
+//   State<ProfilePage> createState() => _ProfilePageState();
+// }
+
+// class _ProfilePageState extends State<ProfilePage> {
+//   TextEditingController nameController = TextEditingController();
+//   TextEditingController rollnoController = TextEditingController();
+//   TextEditingController emailController = TextEditingController();
+//   TextEditingController mobileController = TextEditingController();
+//   TextEditingController branchController = TextEditingController();
+//   //final int index = 1;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     var deviceData = MediaQuery.of(context);
+//     return Scaffold(
+//       backgroundColor: Colors.black12,
+//       appBar: AppBar(
+//         backgroundColor: Colors.black12,
+//         leading: IconButton(
+//           onPressed: () {},
+//           icon: const Icon(Icons.arrow_back_sharp),
+//         ),
+//       ),
+//       body: ListView.builder(
+//         itemCount: 1,
+//         itemBuilder: (context, index) {
+//           return const Fields(
+//             nameController: null,
+//             rollnoController: null,
+//             emailController: null,
+//             mobileController: null,
+//             branchController: null,
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }
+
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key});
 
   @override
-  State<Profile_Page> createState() => _Profile_PageState();
+  State<ProfilePage> createState() => _ProfilePageState();
 }
 
-class _Profile_PageState extends State<Profile_Page> {
+class _ProfilePageState extends State<ProfilePage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController rollnoController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController mobileController = TextEditingController();
   TextEditingController branchController = TextEditingController();
-  //final int index = 1;
-
   @override
   Widget build(BuildContext context) {
     var deviceData = MediaQuery.of(context);
