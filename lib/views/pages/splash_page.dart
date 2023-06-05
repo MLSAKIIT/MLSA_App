@@ -5,6 +5,8 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
         body: Stack(clipBehavior: Clip.none, children: [
       Image.asset(

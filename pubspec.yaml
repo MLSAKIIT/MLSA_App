@@ -39,6 +39,7 @@ dependencies:
   hexcolor: ^3.0.1
   google_fonts: ^4.0.3
   flutter_svg: 
+  auto_size_text: ^3.0.0
 
 dev_dependencies:
   flutter_test:

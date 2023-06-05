@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../widgets/bottom_nav_bar.dart';
+
 // class ProfilePage extends StatefulWidget {
 //   const ProfilePage({Key? key}) : super(key: key);
 
@@ -60,8 +62,11 @@ class _ProfilePageState extends State<ProfilePage> {
   TextEditingController branchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     var deviceData = MediaQuery.of(context);
     return Scaffold(
+      bottomNavigationBar: CustomBottomNavBar(),
       backgroundColor: Colors.black12,
       appBar: AppBar(
         backgroundColor: Colors.black12,

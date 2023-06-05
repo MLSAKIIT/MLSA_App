@@ -1,11 +1,26 @@
 import 'package:flutter/material.dart';
 
+import '../../constant/constants.dart';
+import '../widgets/bottom_nav_bar.dart';
+
 class CouponsPage extends StatelessWidget {
   const CouponsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
+        appBar: AppBar(
+          title: text("Your Coupons", fontWeight: bold),
+          centerTitle: true,
+          backgroundColor: Colors.transparent,
+          // leading: IconButton(
+          //   onPressed: () {},
+          //   icon: const Icon(Icons.arrow_back),
+          // ),
+        ),
+        bottomNavigationBar: CustomBottomNavBar(),
         backgroundColor: Colors.black,
         body: Center(
             child: Padding(
@@ -14,24 +29,9 @@ class CouponsPage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 15.0),
                   child: Column(
                     children: [
-                      AppBar(
-                        backgroundColor: Colors.transparent,
-                        leading: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.arrow_back),
-                        ),
-                      ),
-                      const Text(
-                        'Your Coupons',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
                       Padding(
                         padding: const EdgeInsets.all(25),
-                        child: Image.asset('coupons.png'),
+                        child: Image.asset('assets/coupons.png'),
                       ),
                       const SizedBox(height: 50),
 

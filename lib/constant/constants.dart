@@ -1,13 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
-
-var height = Get.height; // Get the height of the screen
-var width = Get.width; // Get the width of the screen
-var verticalBlock = width / 100; // Get the vertical block size
-var horizontalBlock = height / 100; // Get the horizontal block size
 
 Color white = Colors.white; // Get white color
 Color black = Colors.black; // Get black color
@@ -19,7 +13,7 @@ HexColor buttonColor = HexColor("0E75C3"); //Button color usesd
 
 TextStyle poppins = GoogleFonts.poppins(); // Text Style used
 
-//In place of Text() use text() instead
+/// In place of [Text] use [text] instead
 Text text(
   String text, {
   TextStyle? textStyle,
@@ -44,8 +38,9 @@ Text text(
 }) {
   return Text(
     text,
-    style: GoogleFonts.poppins(
-      textStyle: textStyle,
+    style: TextStyle(
+      //Removing poppings because of error
+      // textStyle: textStyle,
       background: background,
       backgroundColor: backgroundColor,
       color: color,
@@ -93,8 +88,9 @@ Text headingText(
 }) {
   return Text(
     text,
-    style: GoogleFonts.poppins(
-      textStyle: textStyle,
+    style: TextStyle(
+      //Removing poppings because of error
+      // textStyle: textStyle,
       background: background,
       backgroundColor: backgroundColor,
       color: color,

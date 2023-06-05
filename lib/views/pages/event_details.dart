@@ -9,6 +9,8 @@ class EventPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Container(
         height: double.infinity,
