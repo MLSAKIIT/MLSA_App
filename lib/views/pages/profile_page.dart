@@ -2,50 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../../constant/constants.dart';
 import '../widgets/bottom_nav_bar.dart';
-
-// class ProfilePage extends StatefulWidget {
-//   const ProfilePage({Key? key}) : super(key: key);
-
-//   @override
-//   State<ProfilePage> createState() => _ProfilePageState();
-// }
-
-// class _ProfilePageState extends State<ProfilePage> {
-//   TextEditingController nameController = TextEditingController();
-//   TextEditingController rollnoController = TextEditingController();
-//   TextEditingController emailController = TextEditingController();
-//   TextEditingController mobileController = TextEditingController();
-//   TextEditingController branchController = TextEditingController();
-//   //final int index = 1;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     var deviceData = MediaQuery.of(context);
-//     return Scaffold(
-//       backgroundColor: Colors.black12,
-//       appBar: AppBar(
-//         backgroundColor: Colors.black12,
-//         leading: IconButton(
-//           onPressed: () {},
-//           icon: const Icon(Icons.arrow_back_sharp),
-//         ),
-//       ),
-//       body: ListView.builder(
-//         itemCount: 1,
-//         itemBuilder: (context, index) {
-//           return const Fields(
-//             nameController: null,
-//             rollnoController: null,
-//             emailController: null,
-//             mobileController: null,
-//             branchController: null,
-//           );
-//         },
-//       ),
-//     );
-//   }
-// }
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -67,16 +25,16 @@ class _ProfilePageState extends State<ProfilePage> {
     var deviceData = MediaQuery.of(context);
     return Scaffold(
       bottomNavigationBar: CustomBottomNavBar(),
-      backgroundColor: Colors.black,
+      backgroundColor: black,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: black,
         elevation: 0,
         leading: IconButton(
           onPressed: () {},
           icon: const Icon(Icons.arrow_back_sharp),
         ),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(10.0),
         child: Stack(
           children: <Widget>[
@@ -93,8 +51,7 @@ class _ProfilePageState extends State<ProfilePage> {
               margin: const EdgeInsets.fromLTRB(20, 70, 20, 10),
               padding: const EdgeInsets.only(bottom: 10),
               decoration: BoxDecoration(
-                border: Border.all(
-                    color: const Color.fromARGB(255, 51, 204, 255), width: 1),
+                border: Border.all(color: accentColor, width: 1),
                 borderRadius: BorderRadius.circular(6),
                 shape: BoxShape.rectangle,
               ),
@@ -105,7 +62,7 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Container(
                 padding:
                     const EdgeInsets.only(bottom: 10, left: 2.0, right: 2.0),
-                color: Colors.black,
+                color: black,
                 child: const Text(
                   'Name',
                   style: TextStyle(color: Colors.white, fontSize: 12),
@@ -130,8 +87,7 @@ class _ProfilePageState extends State<ProfilePage> {
               margin: const EdgeInsets.fromLTRB(20, 150, 20, 10),
               padding: const EdgeInsets.only(bottom: 10),
               decoration: BoxDecoration(
-                border: Border.all(
-                    color: const Color.fromARGB(255, 51, 204, 255), width: 1),
+                border: Border.all(color: accentColor, width: 1),
                 borderRadius: BorderRadius.circular(6),
                 shape: BoxShape.rectangle,
               ),
@@ -142,7 +98,7 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Container(
                 padding:
                     const EdgeInsets.only(bottom: 10, left: 2.0, right: 2.0),
-                color: Colors.black,
+                color: black,
                 child: const Text(
                   'Roll No.',
                   style: TextStyle(color: Colors.white, fontSize: 12),
@@ -168,8 +124,7 @@ class _ProfilePageState extends State<ProfilePage> {
               margin: const EdgeInsets.fromLTRB(20, 230, 20, 10),
               padding: const EdgeInsets.only(bottom: 10),
               decoration: BoxDecoration(
-                border: Border.all(
-                    color: const Color.fromARGB(255, 51, 204, 255), width: 1),
+                border: Border.all(color: accentColor, width: 1),
                 borderRadius: BorderRadius.circular(6),
                 shape: BoxShape.rectangle,
               ),
@@ -180,7 +135,7 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Container(
                 padding:
                     const EdgeInsets.only(bottom: 10, left: 2.0, right: 2.0),
-                color: Colors.black,
+                color: black,
                 child: const Text(
                   'E-mail',
                   style: TextStyle(color: Colors.white, fontSize: 12),
@@ -206,8 +161,7 @@ class _ProfilePageState extends State<ProfilePage> {
               margin: const EdgeInsets.fromLTRB(20, 310, 20, 10),
               padding: const EdgeInsets.only(bottom: 10),
               decoration: BoxDecoration(
-                border: Border.all(
-                    color: const Color.fromARGB(255, 51, 204, 255), width: 1),
+                border: Border.all(color: accentColor, width: 1),
                 borderRadius: BorderRadius.circular(6),
                 shape: BoxShape.rectangle,
               ),
@@ -218,7 +172,7 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Container(
                 padding:
                     const EdgeInsets.only(bottom: 10, left: 2.0, right: 2.0),
-                color: Colors.black,
+                color: black,
                 child: const Text(
                   'Mobile',
                   style: TextStyle(color: Colors.white, fontSize: 12),
@@ -244,8 +198,7 @@ class _ProfilePageState extends State<ProfilePage> {
               margin: const EdgeInsets.fromLTRB(20, 390, 20, 10),
               padding: const EdgeInsets.only(bottom: 10),
               decoration: BoxDecoration(
-                border: Border.all(
-                    color: const Color.fromARGB(255, 51, 204, 255), width: 1),
+                border: Border.all(color: accentColor, width: 1),
                 borderRadius: BorderRadius.circular(6),
                 shape: BoxShape.rectangle,
               ),
@@ -256,7 +209,7 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Container(
                 padding:
                     const EdgeInsets.only(bottom: 10, left: 2.0, right: 2.0),
-                color: Colors.black,
+                color: black,
                 child: const Text(
                   'Branch',
                   style: TextStyle(color: Colors.white, fontSize: 12),
