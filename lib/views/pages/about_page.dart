@@ -173,15 +173,21 @@ class _AboutPageState extends State<AboutPage> {
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.center,
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.spaceEvenly,
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Image.asset(
                                                     'assets/groups.png'),
-                                                Text(
-                                                  textAlign: TextAlign.center,
-                                                  style: TextStyle(
-                                                      color: Colors.cyan[200]),
-                                                  'Our Vision ',
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 8.0),
+                                                  child: Text(
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                        color:
+                                                            Colors.cyan[200]),
+                                                    'Our Vision ',
+                                                  ),
                                                 ),
                                               ],
                                             ),
@@ -243,13 +249,19 @@ class _AboutPageState extends State<AboutPage> {
                                                       children: [
                                                         Image.asset(
                                                             'assets/mountain.png'),
-                                                        Text(
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: TextStyle(
-                                                              color: Colors
-                                                                  .cyan[200]),
-                                                          'Our mission ',
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                      .only(
+                                                                  top: 8.0),
+                                                          child: Text(
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .cyan[200]),
+                                                            'Our mission ',
+                                                          ),
                                                         ),
                                                       ],
                                                     ),
@@ -306,13 +318,18 @@ class _AboutPageState extends State<AboutPage> {
                                                     children: [
                                                       Image.asset(
                                                           'assets/target.png'),
-                                                      Text(
-                                                        'Our Goal ',
-                                                        textAlign:
-                                                            TextAlign.left,
-                                                        style: TextStyle(
-                                                            color: Colors
-                                                                .cyan[200]),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(top: 8.0),
+                                                        child: Text(
+                                                          'Our Goal ',
+                                                          textAlign:
+                                                              TextAlign.left,
+                                                          style: TextStyle(
+                                                              color: Colors
+                                                                  .cyan[200]),
+                                                        ),
                                                       ),
                                                     ],
                                                   ),

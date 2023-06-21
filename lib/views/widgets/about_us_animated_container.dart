@@ -30,7 +30,7 @@ class AboutUsExpandedContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -39,7 +39,7 @@ class AboutUsExpandedContainer extends StatelessWidget {
               if (descriptionAlignment != Alignment.centerLeft)
                 SizedBox(
                   key: key,
-                  height: height * 0.1,
+                  height: height * 0.13,
                   width: width * 0.45,
                   child: Padding(
                     padding: const EdgeInsets.all(0.0),
@@ -56,7 +56,7 @@ class AboutUsExpandedContainer extends StatelessWidget {
                   ),
                 ),
               Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   logo,
@@ -73,7 +73,7 @@ class AboutUsExpandedContainer extends StatelessWidget {
               if (descriptionAlignment == Alignment.centerLeft)
                 SizedBox(
                   key: key,
-                  height: height * 0.1,
+                  height: height * 0.13,
                   width: width * 0.45,
                   child: Padding(
                     padding: const EdgeInsets.all(0.0),
