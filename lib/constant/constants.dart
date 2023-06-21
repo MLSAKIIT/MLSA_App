@@ -13,7 +13,7 @@ HexColor buttonColor = HexColor("0E75C3"); //Button color usesd
 
 TextStyle poppins = GoogleFonts.poppins(); // Text Style used
 
-/// In place of [Text] use [text] instead
+//In place of Text() use text() instead
 Text text(
   String text, {
   TextStyle? textStyle,
@@ -38,9 +38,8 @@ Text text(
 }) {
   return Text(
     text,
-    style: TextStyle(
-      //Removing poppings because of error
-      // textStyle: textStyle,
+    style: GoogleFonts.poppins(
+      textStyle: textStyle,
       background: background,
       backgroundColor: backgroundColor,
       color: color,
