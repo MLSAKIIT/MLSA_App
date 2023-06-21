@@ -50,11 +50,9 @@ class HomePage extends StatelessWidget {
                         height: height * 0.08,
                       ),
                       GestureDetector(
-                        // TODO: Implement navigate to QR screen
                         onTap: () {
                           Get.to(QrScreen());
                         },
-                        // TODO: Add QR code button
                         child: SvgPicture.asset('assets/qr_icon.svg'),
                       ),
                     ],
@@ -74,7 +72,7 @@ class HomePage extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(EventPage());
+                      Get.to(() => EventPage());
                     },
                     child: Container(
                       width: width * 0.9,

@@ -9,7 +9,6 @@ Color black = Colors.black; // Get black color
 FontWeight bold = FontWeight.bold; // Get bold font weight
 
 HexColor accentColor = HexColor("4DE4FB"); // Get accent(major color used) color
-HexColor buttonColor = HexColor("0E75C3"); //Button color usesd
 
 TextStyle poppins = GoogleFonts.poppins(); // Text Style used
 
@@ -17,7 +16,7 @@ TextStyle poppins = GoogleFonts.poppins(); // Text Style used
 Text text(
   String text, {
   TextStyle? textStyle,
-  Color? color,
+  Color color = Colors.white,
   Color? backgroundColor,
   double? fontSize,
   FontWeight? fontWeight,
@@ -67,7 +66,7 @@ Text text(
 Text headingText(
   String text, {
   TextStyle? textStyle,
-  Color? color,
+  Color color = Colors.white,
   Color? backgroundColor,
   double? fontSize,
   FontWeight? fontWeight,

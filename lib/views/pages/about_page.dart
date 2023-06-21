@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'dart:math' as math;
 import '../../constant/constants.dart';
 import '../widgets/about_us_animated_container.dart';
 import '../widgets/bottom_nav_bar.dart';
@@ -71,16 +71,8 @@ class _AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    return Scaffold(
-        appBar: AppBar(
-          title: text("About Us", fontWeight: bold),
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.arrow_back),
-          ),
-        ),
+    return SafeArea(
+      child: Scaffold(
         bottomNavigationBar: CustomBottomNavBar(),
         body: Container(
           height: double.infinity,
@@ -92,31 +84,39 @@ class _AboutPageState extends State<AboutPage> {
             ),
           ),
           child: SingleChildScrollView(
-              child: Column(
-                  //(clipBehavior: Clip.none,
-                  children: [
-                Image.asset(
-                  'assets/gbm.png',
-                  height: 200,
-                  width: width,
-                  fit: BoxFit.fitWidth,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 20.0),
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/mlsalogo1.png'),
+            child: Column(
+              //(clipBehavior: Clip.none,
+              children: [
+                SizedBox(
+                  height: height * 0.35,
+                  child: Stack(
+                    children: [
+                      Image.asset(
+                        'assets/gbm.png',
+                        height: height * 0.28,
+                        width: width,
+                        fit: BoxFit.fill,
                       ),
-                      // border: Border.all(color: Colors.white54, width: 2),
-                    ),
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Container(
+                          height: height * 0.13,
+                          // width: height * 0.1,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage('assets/mlsalogo1.png'),
+                            ),
+                            // border: Border.all(color: Colors.white54, width: 2),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    child: Column(children: [
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: Column(
+                    children: [
                       const Text(
                         'About Us',
                         style: TextStyle(
@@ -338,145 +338,162 @@ class _AboutPageState extends State<AboutPage> {
                       // context,
                       //MaterialPageRoute(
                       //builder: (context) =>,
-                      Wrap(direction: Axis.horizontal, children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Container(
-                              height: 140,
-                              width: 130,
-                              decoration: BoxDecoration(
-                                color: Colors.grey.withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(12),
-                                image: const DecorationImage(
-                                    image: AssetImage('assets/Technical.png'),
-                                    alignment: Alignment(0.1, -0.5)),
-                              ),
-                              padding: const EdgeInsets.all(6),
-                              child: const Center(
-                                  child: Padding(
-                                padding: EdgeInsets.only(
-                                    top: 100, bottom: 10, left: 12, right: 12),
-                                child: Text(
-                                  'TECHNICAL',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 14,
-                                  ),
+                      Wrap(
+                        direction: Axis.horizontal,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Container(
+                                height: 140,
+                                width: 130,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.withOpacity(0.2),
+                                  borderRadius: BorderRadius.circular(12),
+                                  image: const DecorationImage(
+                                      image: AssetImage('assets/Technical.png'),
+                                      alignment: Alignment(0.1, -0.5)),
                                 ),
-                              ))),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Container(
-                              height: 140,
-                              width: 130,
-                              decoration: BoxDecoration(
-                                color: Colors.grey.withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(12),
-                                image: const DecorationImage(
-                                    image: AssetImage('assets/creative.png'),
-                                    alignment: Alignment(0.1, -0.5)),
-                              ),
-                              padding: const EdgeInsets.all(6),
-                              child: const Center(
-                                  child: Padding(
-                                padding: EdgeInsets.only(
-                                    top: 100, bottom: 10, left: 12, right: 12),
-                                child: Text(
-                                  'CREATIVE',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 14,
+                                padding: const EdgeInsets.all(6),
+                                child: const Center(
+                                    child: Padding(
+                                  padding: EdgeInsets.only(
+                                      top: 100,
+                                      bottom: 10,
+                                      left: 12,
+                                      right: 12),
+                                  child: Text(
+                                    'TECHNICAL',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 14,
+                                    ),
                                   ),
+                                ))),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Container(
+                                height: 140,
+                                width: 130,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.withOpacity(0.2),
+                                  borderRadius: BorderRadius.circular(12),
+                                  image: const DecorationImage(
+                                      image: AssetImage('assets/creative.png'),
+                                      alignment: Alignment(0.1, -0.5)),
                                 ),
-                              ))),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Container(
-                              height: 140,
-                              width: 130,
-                              decoration: BoxDecoration(
-                                color: Colors.grey.withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(12),
-                                image: const DecorationImage(
-                                    image: AssetImage('assets/op.png'),
-                                    alignment: Alignment(0.1, -0.5)),
-                              ),
-                              padding: const EdgeInsets.all(6),
-                              child: const Center(
-                                  child: Padding(
-                                padding: EdgeInsets.only(
-                                    top: 100, bottom: 10, left: 12, right: 12),
-                                child: Text(
-                                  'OPERATIONS',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 14,
+                                padding: const EdgeInsets.all(6),
+                                child: const Center(
+                                    child: Padding(
+                                  padding: EdgeInsets.only(
+                                      top: 100,
+                                      bottom: 10,
+                                      left: 12,
+                                      right: 12),
+                                  child: Text(
+                                    'CREATIVE',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 14,
+                                    ),
                                   ),
+                                ))),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Container(
+                                height: 140,
+                                width: 130,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.withOpacity(0.2),
+                                  borderRadius: BorderRadius.circular(12),
+                                  image: const DecorationImage(
+                                      image: AssetImage('assets/op.png'),
+                                      alignment: Alignment(0.1, -0.5)),
                                 ),
-                              ))),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Container(
-                              height: 140,
-                              width: 130,
-                              decoration: BoxDecoration(
-                                color: Colors.grey.withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(12),
-                                image: const DecorationImage(
-                                    image: AssetImage('assets/marketing.png'),
-                                    alignment: Alignment(0.1, -0.5)),
-                              ),
-                              padding: const EdgeInsets.all(6),
-                              child: const Center(
-                                  child: Padding(
-                                padding: EdgeInsets.only(
-                                    top: 100, bottom: 10, left: 12, right: 12),
-                                child: Text(
-                                  'MARKETING',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 14,
+                                padding: const EdgeInsets.all(6),
+                                child: const Center(
+                                    child: Padding(
+                                  padding: EdgeInsets.only(
+                                      top: 100,
+                                      bottom: 10,
+                                      left: 12,
+                                      right: 12),
+                                  child: Text(
+                                    'OPERATIONS',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 14,
+                                    ),
                                   ),
+                                ))),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Container(
+                                height: 140,
+                                width: 130,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.withOpacity(0.2),
+                                  borderRadius: BorderRadius.circular(12),
+                                  image: const DecorationImage(
+                                      image: AssetImage('assets/marketing.png'),
+                                      alignment: Alignment(0.1, -0.5)),
                                 ),
-                              ))),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Container(
-                              height: 140,
-                              width: 130,
-                              decoration: BoxDecoration(
-                                color: Colors.grey.withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(12),
-                                image: const DecorationImage(
-                                    image: AssetImage('assets/graphics.png'),
-                                    alignment: Alignment(0.1, -0.5)),
-                              ),
-                              padding: const EdgeInsets.all(6),
-                              child: const Center(
-                                  child: Padding(
-                                padding: EdgeInsets.only(
-                                    top: 100, bottom: 10, left: 12, right: 12),
-                                child: Text(
-                                  'GRAPHICS',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 14,
+                                padding: const EdgeInsets.all(6),
+                                child: const Center(
+                                    child: Padding(
+                                  padding: EdgeInsets.only(
+                                      top: 100,
+                                      bottom: 10,
+                                      left: 12,
+                                      right: 12),
+                                  child: Text(
+                                    'MARKETING',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 14,
+                                    ),
                                   ),
+                                ))),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Container(
+                                height: 140,
+                                width: 130,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.withOpacity(0.2),
+                                  borderRadius: BorderRadius.circular(12),
+                                  image: const DecorationImage(
+                                      image: AssetImage('assets/graphics.png'),
+                                      alignment: Alignment(0.1, -0.5)),
                                 ),
-                              ))),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Container(
+                                padding: const EdgeInsets.all(6),
+                                child: const Center(
+                                    child: Padding(
+                                  padding: EdgeInsets.only(
+                                      top: 100,
+                                      bottom: 10,
+                                      left: 12,
+                                      right: 12),
+                                  child: Text(
+                                    'GRAPHICS',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ))),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Container(
                               height: 140,
                               width: 130,
                               decoration: BoxDecoration(
@@ -488,22 +505,59 @@ class _AboutPageState extends State<AboutPage> {
                               ),
                               padding: const EdgeInsets.all(6),
                               child: const Center(
-                                  child: Padding(
-                                padding: EdgeInsets.only(
-                                    top: 100, bottom: 10, left: 12, right: 12),
-                                child: Text(
-                                  'YOUTUBE',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 14,
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                      top: 100,
+                                      bottom: 10,
+                                      left: 12,
+                                      right: 12),
+                                  child: Text(
+                                    'YOUTUBE',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: 14,
+                                    ),
                                   ),
                                 ),
-                              ))),
-                        )
-                      ])
-                    ]))
-              ])),
-        ));
+                              ),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
+
+// class SemiCircleClipper extends CustomClipper<Path> {
+//   @override
+//   Path getClip(Size size) {
+//     final path = Path();
+//     final radius = size.width / 2;
+
+//     path.moveTo(radius, 0);
+//     path.arcTo(
+//       Rect.fromCircle(center: Offset(radius, radius), radius: radius),
+//       0.0,
+//       math.pi,
+//       false,
+//     );
+//     path.lineTo(size.width, size.height);
+//     path.lineTo(0, size.height);
+//     path.close();
+
+//     return path;
+//   }
+
+//   @override
+//   bool shouldReclip(SemiCircleClipper oldClipper) => false;
+// }
+
