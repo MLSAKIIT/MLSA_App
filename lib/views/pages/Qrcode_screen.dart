@@ -23,7 +23,7 @@ class QrScreen extends StatelessWidget {
               'Show this code at the entry\n\nand attend the event ',
               textAlign: TextAlign.center,
               style: GoogleFonts.poppins(
-                  textStyle: TextStyle(color: Colors.white, fontSize: 15)),
+                  textStyle: TextStyle(color: Colors.white, fontSize: 19)),
             ),
           ],
         ),
