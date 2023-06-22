@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mlsa_app/constant/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -9,6 +10,7 @@ class QrScreen extends StatelessWidget {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Colors.black,
         body: Stack(
       children: [
         Column(
@@ -16,12 +18,12 @@ class QrScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset('assets/qrcode.png'),
-            SizedBox(height: 7, width: 7),
+            SizedBox(height: 2, width: 2),
             Text(
               'Show this code at the entry\n\nand attend the event ',
               textAlign: TextAlign.center,
               style: GoogleFonts.poppins(
-                  textStyle: TextStyle(color: Colors.white, fontSize: 13)),
+                  textStyle: TextStyle(color: Colors.white, fontSize: 15)),
             ),
           ],
         ),
@@ -30,7 +32,9 @@ class QrScreen extends StatelessWidget {
           alignment: Alignment.topLeft,
           child: IconButton(
             icon: Image.asset('assets/Arrow_left.png'),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
         ),
         Container(
