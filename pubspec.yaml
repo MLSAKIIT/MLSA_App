@@ -41,6 +41,7 @@ dependencies:
   flutter_svg: 
   auto_size_text: ^3.0.0
   device_preview: ^1.1.0
+  qr_flutter: ^4.1.0
 
 dev_dependencies:
   flutter_test:
