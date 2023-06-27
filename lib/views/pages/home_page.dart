@@ -1,16 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
-import 'package:mlsa_app/views/pages/Qrcode_screen.dart';
-import 'package:mlsa_app/views/pages/about_page.dart';
-import 'package:mlsa_app/views/pages/coupons_page.dart';
-import 'package:mlsa_app/views/pages/profile_page.dart';
-import 'package:mlsa_app/views/widgets/blogs_list_widget.dart';
 import 'package:mlsa_app/views/widgets/past_events_widget.dart';
 
 import '../../constant/constants.dart';
 import '../widgets/bottom_nav_bar.dart';
-import 'event_details.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -19,164 +11,198 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    var verticalBlock = width / 100; // Get the vertical block size
-    var horizontalBlock = height / 100; // Get the horizontal block size
+    var verticalBlock = width / 423; // Get the vertical block size
+    var horizontalBlock = height / 997; // Get the horizontal block size
     return SafeArea(
       child: Scaffold(
+        backgroundColor: black,
         body: Stack(
           children: [
-            SizedBox(
-              height: height,
-              width: width,
-              child: Image.asset(
-                'assets/home_page_background.png',
-                fit: BoxFit.fitWidth,
-              ),
-            ),
+            // Container(
+            //   width: horizontalBlock * 185,
+            //   height: verticalBlock * 185,
+            //   decoration: const ShapeDecoration(
+            //     color: Color(0xCE4AE9FC),
+            //     shape: OvalBorder(),
+            //   ),
+            // ),
             Padding(
               padding: EdgeInsets.only(
-                left: horizontalBlock * 2.5,
-                top: verticalBlock * 4,
-              ),
+                  left: horizontalBlock * 20, top: verticalBlock * 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Image.asset(
-                        'assets/mlsa_logo.png',
-                        width: width * 0.2,
-                        height: height * 0.08,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Get.to(QrScreen());
-                        },
-                        child: SvgPicture.asset('assets/qr_icon.svg'),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: height * 0.01,
-                  ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: headingText(
-                      'Ongoing Event',
-                      fontSize: verticalBlock * 5,
+                    padding: EdgeInsets.only(right: horizontalBlock * 18),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Image.asset(
+                          'assets/mlsa_logo.png',
+                          height: verticalBlock * 45,
+                          fit: BoxFit.contain,
+                        ),
+                        const Spacer(),
+                        Icon(
+                          Icons.arrow_back_ios,
+                          color: Colors.white,
+                          size: verticalBlock * 20,
+                        ),
+                        // Icon(Icons.qr_code_sharp, color: Colors.white, size: 24),
+                        /// TODO: Change to QR code
+                        Image.asset(
+                          'assets/qr_code_homepage.png',
+                          height: verticalBlock * 24,
+                          fit: BoxFit.contain,
+                        ),
+                      ],
                     ),
                   ),
-                  SizedBox(
-                    height: height * 0.02,
+                  SizedBox(height: verticalBlock * 32),
+                  text(
+                    'Ongoing Event',
+                    color: Colors.white,
+                    fontSize: verticalBlock * 20,
+                    fontWeight: FontWeight.w500,
                   ),
-                  InkWell(
-                    onTap: () {
-                      Get.to(() => EventPage());
-                    },
+                  SizedBox(height: verticalBlock * 21),
+                  Padding(
+                    padding: EdgeInsets.only(right: horizontalBlock * 20),
                     child: Container(
-                      width: width * 0.9,
-                      height: height * 0.22,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(35),
-                        color: Colors.grey[800],
+                      height: verticalBlock * 157,
+                      padding: EdgeInsets.only(
+                        left: horizontalBlock * 13,
+                        top: verticalBlock * 10,
+                        right: verticalBlock * 10,
+                        bottom: verticalBlock * 11,
                       ),
-
-                      // TODO: Get data from api for ongoing event
-                      child: Stack(
+                      decoration: ShapeDecoration(
+                        gradient: LinearGradient(
+                          begin: const Alignment(1.00, 0.00),
+                          end: const Alignment(-1, 0),
+                          colors: [
+                            Colors.white.withOpacity(0.05000000074505806),
+                            const Color(0x752FF7F7)
+                          ],
+                        ),
+                        shape: RoundedRectangleBorder(
+                          side: const BorderSide(
+                              width: 0.50, color: Color(0xFF81ECFC)),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        shadows: const [
+                          BoxShadow(
+                            color: Color(0x3F000000),
+                            blurRadius: 4,
+                            offset: Offset(0, 4),
+                            spreadRadius: 0,
+                          )
+                        ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Positioned(
-                            top: verticalBlock * 2.3,
-                            left: horizontalBlock,
-                            right: horizontalBlock,
-                            child: SvgPicture.asset(
-                              'assets/home_page_container_background.svg',
-                            ),
-                          ),
-                          Positioned(
-                            top: verticalBlock * 8.5,
-                            left: horizontalBlock * 4,
-                            child: headingText(
-                              'Eye Spy Squid',
-                              fontSize: height * 0.025,
-                            ),
-                          ),
-                          Positioned(
-                            top: verticalBlock * 17,
-                            left: horizontalBlock * 4,
-                            child: text(
-                              'AI/ML',
-                              fontSize: verticalBlock * 3.65,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Positioned(
-                            top: verticalBlock * 26,
-                            left: horizontalBlock * 3.9,
-                            child: text(
-                              'Lorem ipsum dolor sit amet, consectetur \nadipiscing elit, sed do eiusmod tempor \nincididunt ut labore et dolore',
-                              fontSize: verticalBlock * 2.35,
-                              fontWeight: FontWeight.w200,
-                            ),
-                          ),
-                          Positioned(
-                            top: verticalBlock * 10,
-                            right: horizontalBlock * 4,
-                            child: text(
-                              '107 registered',
-                              color: accentColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: verticalBlock * 3.3,
-                            ),
-                          ),
-                          Positioned(
-                            bottom: verticalBlock * 6.5,
-                            right: horizontalBlock * 4,
-                            child: TextButton(
-                              style: TextButton.styleFrom(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: horizontalBlock * 2.5,
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                  side: BorderSide(color: accentColor),
-                                ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  headingText(
+                                    'Eye Spy Squid',
+                                    fontSize: 20,
+                                  ),
+                                  SizedBox(height: verticalBlock * 2),
+                                  text(
+                                    'AI/ML',
+                                    fontSize: 15,
+                                    color: white,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                  SizedBox(height: verticalBlock * 25),
+                                  SizedBox(
+                                    width: horizontalBlock * 220,
+                                    child: text(
+                                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
+                                      color: Colors.white,
+                                      fontSize: verticalBlock * 10,
+                                      fontWeight: FontWeight.w300,
+                                      // textAlign: TextAlign.justify,
+                                    ),
+                                  ),
+                                ],
                               ),
-                              // TODO: Navigate to Register page
-                              onPressed: () {
-                                Get.to(() => EventPage());
-                              },
-                              child: text(
-                                'Register',
-                                color: accentColor,
-                                fontSize: verticalBlock * 3.6,
+                              const Spacer(),
+                              Column(
+                                children: [
+                                  text(
+                                    '107 registered',
+                                    fontSize: verticalBlock * 11,
+                                    fontWeight: FontWeight.w500,
+                                    color: accentColor,
+                                  ),
+                                  SizedBox(height: verticalBlock * 81),
+                                  InkWell(
+                                    onTap: () {
+                                      // Get.to(() => EventDetails());
+                                    },
+                                    child: Container(
+                                      height: verticalBlock * 32,
+                                      width: horizontalBlock * 102,
+                                      decoration: ShapeDecoration(
+                                        shape: RoundedRectangleBorder(
+                                          side: BorderSide(
+                                              width: 1, color: accentColor),
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                      ),
+                                      child: Center(
+                                        child: text(
+                                          'Register',
+                                          fontSize: verticalBlock * 13,
+                                          fontWeight: FontWeight.w400,
+                                          color: accentColor,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ),
+                            ],
                           ),
                         ],
                       ),
                     ),
                   ),
-                  SizedBox(height: verticalBlock * 5.2),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: headingText(
-                      'Events Memories',
-                      fontSize: verticalBlock * 5,
-                    ),
+                  SizedBox(height: verticalBlock * 31),
+                  text(
+                    'Events Memories',
+                    color: Colors.white,
+                    fontSize: verticalBlock * 20,
+                    fontWeight: FontWeight.w500,
                   ),
-                  SizedBox(height: verticalBlock * 4.3),
-                  ScrollablePastEvents(height: height * 0.13, width: width),
-                  SizedBox(height: verticalBlock * 5.4),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: headingText(
-                      'Our Blogs',
-                      fontSize: 20,
-                    ),
+                  SizedBox(height: verticalBlock * 20),
+                  SizedBox(
+                    height: verticalBlock * 110,
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 3,
+                        itemBuilder: (context, index) {
+                          return PastEventsWidget(
+                            height: verticalBlock * 109,
+                            width: horizontalBlock * 214,
+                            assetName: homePageEventsAssetList[index],
+                            eventName: homePageEventsNameList[index],
+                          );
+                        }),
                   ),
-                  SizedBox(height: verticalBlock * 4.3),
-                  ScrollableBlogsList(height: height * 0.15, width: width),
+                  SizedBox(height: verticalBlock * 30),
+                  text('Our blogs',
+                      fontSize: verticalBlock * 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500),
+                  SizedBox(height: verticalBlock * 20),
                 ],
               ),
             ),

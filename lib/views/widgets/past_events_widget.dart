@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mlsa_app/constant/constants.dart';
 
 class ScrollablePastEvents extends StatelessWidget {
   const ScrollablePastEvents(
@@ -26,9 +27,14 @@ class ScrollablePastEvents extends StatelessWidget {
                   Radius.circular(20),
                 ),
               ),
-              child: Stack(children: [
-                Image.asset('assets/mlsa_logo_big.png', fit: BoxFit.contain,),
-              ],),
+              child: Stack(
+                children: [
+                  Image.asset(
+                    'assets/mlsa_logo_big.png',
+                    fit: BoxFit.contain,
+                  ),
+                ],
+              ),
             ),
             const SizedBox(
               width: 10,
@@ -42,9 +48,14 @@ class ScrollablePastEvents extends StatelessWidget {
                   Radius.circular(20),
                 ),
               ),
-              child: Stack(children: [
-                Image.asset('assets/mlsa_logo_big.png', fit: BoxFit.contain,),
-              ],),
+              child: Stack(
+                children: [
+                  Image.asset(
+                    'assets/mlsa_logo_big.png',
+                    fit: BoxFit.contain,
+                  ),
+                ],
+              ),
             ),
             const SizedBox(
               width: 10,
@@ -58,11 +69,63 @@ class ScrollablePastEvents extends StatelessWidget {
                   Radius.circular(20),
                 ),
               ),
-              child: Stack(children: [
-                Image.asset('assets/mlsa_logo_big.png', fit: BoxFit.contain,),
-              ],),
+              child: Stack(
+                children: [
+                  Image.asset(
+                    'assets/mlsa_logo_big.png',
+                    fit: BoxFit.contain,
+                  ),
+                ],
+              ),
             ),
           ],
         ));
+  }
+}
+
+class PastEventsWidget extends StatelessWidget {
+  const PastEventsWidget({
+    super.key,
+    required this.height,
+    required this.width,
+    required this.assetName,
+    required this.eventName,
+  });
+
+  final double height;
+  final double width;
+  final String assetName;
+  final String eventName;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Stack(children: [
+          SizedBox(
+            width: width,
+            height: height,
+            child: Image.asset(assetName),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              left: width * (12 / 214),
+              bottom: height * (10 / 109),
+            ),
+            child: Align(
+              alignment: Alignment.bottomLeft,
+              child: text(
+                eventName,
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          )
+        ]),
+        SizedBox(
+          width: width * (8 / 109),
+        ),
+      ],
+    );
   }
 }

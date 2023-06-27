@@ -111,3 +111,14 @@ Text headingText(
     ),
   );
 }
+
+List<String> homePageEventsAssetList = [
+  'assets/flutter_verse_image.png',
+  'assets/front_end_with_benefits_image.png',
+  'assets/flutter_verse_image.png'
+];
+List<String> homePageEventsNameList = [
+  'Flutter Verse',
+  'Front-End with Benefit',
+  'Flutter Verse'
+];
