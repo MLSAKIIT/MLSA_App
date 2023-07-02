@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_typing_uninitialized_variables
+// ignore_for_file: prefer_typing_uninitialized_variables, unused_element
 
 import 'package:flutter/material.dart';
 
@@ -18,11 +18,13 @@ class _ProfilePageState extends State<ProfilePage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController mobileController = TextEditingController();
   TextEditingController branchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
-    var deviceData = MediaQuery.of(context);
+    var h = MediaQuery.of(context).size.height;
+    var w = MediaQuery.of(context).size.width;
+    //var deviceData = MediaQuery.of(context);
+
     return Scaffold(
       bottomNavigationBar: CustomBottomNavBar(),
       backgroundColor: black,
@@ -31,219 +33,131 @@ class _ProfilePageState extends State<ProfilePage> {
         elevation: 0,
         leading: IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.arrow_back_sharp),
+          icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(10.0),
-        child: Stack(
-          children: <Widget>[
+        padding: EdgeInsets.all(20),
+        child: Column(
+          children: [
             const Padding(
               padding: EdgeInsets.all(10.0),
-              child: Text(
-                'Hi there! Fill it up and save yourself from the hassle of filling forms for every event',
-                style: TextStyle(color: Colors.white, fontSize: 12),
-              ),
             ),
             Container(
-              width: double.infinity,
-              height: 47,
-              margin: const EdgeInsets.fromLTRB(20, 70, 20, 10),
-              padding: const EdgeInsets.only(bottom: 10),
+              height: h * 0.15,
+              width: h * 0.15,
               decoration: BoxDecoration(
-                border: Border.all(color: accentColor, width: 1),
-                borderRadius: BorderRadius.circular(6),
-                shape: BoxShape.rectangle,
+                color: Color.fromARGB(255, 238, 237, 237),
+                borderRadius: BorderRadius.circular(10),
               ),
             ),
-            Positioned(
-              left: 30,
-              top: 62,
-              child: Container(
-                padding:
-                    const EdgeInsets.only(bottom: 10, left: 2.0, right: 2.0),
-                color: black,
-                child: const Text(
-                  'Name',
-                  style: TextStyle(color: Colors.white, fontSize: 12),
-                ),
-              ),
+            SizedBox(
+              height: h * 0.04,
             ),
-            Container(
-              padding: const EdgeInsets.only(
-                  bottom: 10, left: 40.0, right: 2.0, top: 70),
-              child: TextField(
-                style: const TextStyle(color: Colors.white),
-                cursorColor: Colors.white,
-                controller: nameController,
-                decoration: const InputDecoration(
-                  border: InputBorder.none,
-                ),
-              ),
+            _TextBlocks(
+              fieldtext: 'Name',
+              controller: nameController,
+              height: h,
+              width: w,
             ),
-            Container(
-              width: double.infinity,
-              height: 47,
-              margin: const EdgeInsets.fromLTRB(20, 150, 20, 10),
-              padding: const EdgeInsets.only(bottom: 10),
-              decoration: BoxDecoration(
-                border: Border.all(color: accentColor, width: 1),
-                borderRadius: BorderRadius.circular(6),
-                shape: BoxShape.rectangle,
-              ),
+            _TextBlocks(
+              fieldtext: 'Roll No',
+              controller: rollnoController,
+              height: h,
+              width: w,
             ),
-            Positioned(
-              left: 30,
-              top: 142,
-              child: Container(
-                padding:
-                    const EdgeInsets.only(bottom: 10, left: 2.0, right: 2.0),
-                color: black,
-                child: const Text(
-                  'Roll No.',
-                  style: TextStyle(color: Colors.white, fontSize: 12),
-                ),
-              ),
+            _TextBlocks(
+              fieldtext: 'E-mail',
+              controller: emailController,
+              height: h,
+              width: w,
             ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(0, 130, 20, 40),
-              padding: const EdgeInsets.only(
-                  bottom: 10, left: 40.0, right: 2.0, top: 20),
-              child: TextField(
-                style: const TextStyle(color: Colors.white),
-                cursorColor: Colors.white,
-                controller: rollnoController,
-                decoration: const InputDecoration(
-                  border: InputBorder.none,
-                ),
-              ),
+            _TextBlocks(
+              fieldtext: 'Mobile',
+              controller: mobileController,
+              height: h,
+              width: w,
             ),
-            Container(
-              width: double.infinity,
-              height: 47,
-              margin: const EdgeInsets.fromLTRB(20, 230, 20, 10),
-              padding: const EdgeInsets.only(bottom: 10),
-              decoration: BoxDecoration(
-                border: Border.all(color: accentColor, width: 1),
-                borderRadius: BorderRadius.circular(6),
-                shape: BoxShape.rectangle,
-              ),
+            _TextBlocks(
+              fieldtext: 'Branch',
+              controller: branchController,
+              height: h,
+              width: w,
             ),
-            Positioned(
-              left: 30,
-              top: 222,
-              child: Container(
-                padding:
-                    const EdgeInsets.only(bottom: 10, left: 2.0, right: 2.0),
-                color: black,
-                child: const Text(
-                  'E-mail',
-                  style: TextStyle(color: Colors.white, fontSize: 12),
-                ),
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(0, 210, 20, 40),
-              padding: const EdgeInsets.only(
-                  bottom: 10, left: 40.0, right: 2.0, top: 20),
-              child: TextField(
-                style: const TextStyle(color: Colors.white),
-                cursorColor: Colors.white,
-                controller: emailController,
-                decoration: const InputDecoration(
-                  border: InputBorder.none,
-                ),
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              height: 47,
-              margin: const EdgeInsets.fromLTRB(20, 310, 20, 10),
-              padding: const EdgeInsets.only(bottom: 10),
-              decoration: BoxDecoration(
-                border: Border.all(color: accentColor, width: 1),
-                borderRadius: BorderRadius.circular(6),
-                shape: BoxShape.rectangle,
-              ),
-            ),
-            Positioned(
-              left: 30,
-              top: 302,
-              child: Container(
-                padding:
-                    const EdgeInsets.only(bottom: 10, left: 2.0, right: 2.0),
-                color: black,
-                child: const Text(
-                  'Mobile',
-                  style: TextStyle(color: Colors.white, fontSize: 12),
-                ),
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(0, 290, 20, 40),
-              padding: const EdgeInsets.only(
-                  bottom: 10, left: 40.0, right: 2.0, top: 20),
-              child: TextField(
-                style: const TextStyle(color: Colors.white),
-                cursorColor: Colors.white,
-                controller: mobileController,
-                decoration: const InputDecoration(
-                  border: InputBorder.none,
-                ),
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              height: 47,
-              margin: const EdgeInsets.fromLTRB(20, 390, 20, 10),
-              padding: const EdgeInsets.only(bottom: 10),
-              decoration: BoxDecoration(
-                border: Border.all(color: accentColor, width: 1),
-                borderRadius: BorderRadius.circular(6),
-                shape: BoxShape.rectangle,
-              ),
-            ),
-            Positioned(
-              left: 30,
-              top: 382,
-              child: Container(
-                padding:
-                    const EdgeInsets.only(bottom: 10, left: 2.0, right: 2.0),
-                color: black,
-                child: const Text(
-                  'Branch',
-                  style: TextStyle(color: Colors.white, fontSize: 12),
-                ),
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(0, 370, 20, 40),
-              padding: const EdgeInsets.only(
-                  bottom: 10, left: 40.0, right: 2.0, top: 20),
-              child: TextField(
-                style: const TextStyle(color: Colors.white),
-                cursorColor: Colors.white,
-                controller: branchController,
-                decoration: const InputDecoration(
-                  border: InputBorder.none,
-                ),
-              ),
+            const SizedBox(
+              height: 25,
             ),
             Center(
               child: Container(
-                width: double.infinity,
-                height: 47,
-                margin: const EdgeInsets.fromLTRB(20, 470, 20, 10),
+                width: w,
+                height: h * 0.05,
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: const Text(
-                    'Submit',
-                    style: TextStyle(color: Colors.white, fontSize: 18),
-                  ),
+                  child: text('Submit',
+                      color: Colors.white,
+                      fontSize: h * 0.02,
+                      fontWeight: FontWeight.w400),
                 ),
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _TextBlocks extends StatelessWidget {
+  final height;
+  final width;
+  final TextEditingController controller;
+  final String fieldtext;
+
+  const _TextBlocks({
+    Key? key,
+    required this.fieldtext,
+    required this.controller,
+    required this.height,
+    required this.width,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: width,
+      height: height * 0.06,
+      margin: const EdgeInsets.fromLTRB(0, 18, 0, 0),
+      padding: const EdgeInsets.only(bottom: 10),
+      decoration: const BoxDecoration(
+        shape: BoxShape.rectangle,
+      ),
+      child: TextField(
+        textAlignVertical: TextAlignVertical.center,
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: (height * 0.024),
+        ),
+        cursorColor: Colors.white,
+        controller: controller,
+        decoration: InputDecoration(
+          hintText: "",
+          alignLabelWithHint: true,
+          labelText: fieldtext,
+          labelStyle: TextStyle(
+              color: Colors.white,
+              fontSize: height * 0.025,
+              fontWeight: FontWeight.w100),
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          contentPadding: EdgeInsets.fromLTRB(15, 10, 15, 10),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: accentColor),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: accentColor),
+          ),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(24)),
+              borderSide: BorderSide(color: accentColor, width: 4)),
         ),
       ),
     );
