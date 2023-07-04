@@ -16,143 +16,140 @@ class HomePage extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var verticalBlock = width / 423; // Get the vertical block size
     var horizontalBlock = height / 997; // Get the horizontal block size
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: black,
-        body: Stack(
-          children: [
-            Container(
-              width: horizontalBlock * 200,
-              height: verticalBlock * 200,
-              // decoration: const ShapeDecoration(
-              //   color: Color(0xCE4AE9FC),
-              //   shape: OvalBorder(),
-              // ),
-              // decoration: const BoxDecoration(
-              //   gradient: RadialGradient(
-              //     center: Alignment.topLeft,
-              //     colors: [
-              //       const Color(0xFF4AE9FC),
-              //       const Color(0xFF2487BE),
-              //     ],
-              //   ),
-              //   // shape: BoxShape.circle,
-              // ),
+    return Scaffold(
+      bottomNavigationBar: CustomBottomNavBar(),
+      backgroundColor: black,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+            width: width,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  'assets/home_page_images/mlsa_icon_background_image.png',
+                ),
+                fit: BoxFit.cover,
+              ),
             ),
-            Padding(
+            child: Padding(
               padding: EdgeInsets.only(
-                  left: horizontalBlock * 20, top: verticalBlock * 20),
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(right: horizontalBlock * 18),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Image.asset(
-                            'assets/mlsa_logo.png',
-                            height: verticalBlock * 45,
-                            fit: BoxFit.contain,
-                          ),
-                          const Spacer(),
-
-                          // Icon(Icons.qr_code_sharp, color: Colors.white, size: 24),
-                          /// TODO: Change to QR code
-                          Container(
-                            width: horizontalBlock * 67,
-                            height: horizontalBlock * 67,
-                            decoration: ShapeDecoration(
-                              color: const Color(0xFF4AE9FC).withOpacity(0.35),
-                              shape: const OvalBorder(),
-                            ),
-                            child: BackdropFilter(
-                              filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Icon(
-                                    Icons.arrow_back_ios,
-                                    color: Colors.white,
-                                    size: verticalBlock * 20,
-                                  ),
-                                  Image.asset(
-                                    'assets/qr_code_homepage.png',
-                                    height: verticalBlock * 24,
-                                    fit: BoxFit.contain,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
+                left: horizontalBlock * 20,
+                top: verticalBlock * 20,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/mlsa_logo.png',
+                        height: verticalBlock * 45,
+                        fit: BoxFit.contain,
                       ),
-                    ),
-                    SizedBox(height: verticalBlock * 32),
-                    text(
-                      'Ongoing Event',
-                      color: Colors.white,
-                      fontSize: verticalBlock * 20,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    SizedBox(height: verticalBlock * 21),
-                    Padding(
-                      padding: EdgeInsets.only(right: horizontalBlock * 20),
-                      child: Container(
-                        height: verticalBlock * 157,
-                        padding: EdgeInsets.only(
-                          left: horizontalBlock * 13,
-                          top: verticalBlock * 10,
-                          right: verticalBlock * 10,
-                          bottom: verticalBlock * 11,
+                      const Spacer(),
+                      Container(
+                        height: verticalBlock * 70,
+                        width: horizontalBlock * 70,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage(
+                              'assets/home_page_images/qr_icon_background_gradient.png',
+                            ),
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                        decoration: ShapeDecoration(
-                          gradient: LinearGradient(
-                            begin: const Alignment(1.00, 0.00),
-                            end: const Alignment(-1, 0),
-                            colors: [
-                              Colors.white.withOpacity(0.05000000074505806),
-                              const Color(0x752FF7F7)
-                            ],
-                          ),
-                          shape: RoundedRectangleBorder(
-                            side: const BorderSide(
-                                width: 0.50, color: Color(0xFF81ECFC)),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          shadows: const [
-                            BoxShadow(
-                              color: Color(0x3F000000),
-                              blurRadius: 4,
-                              offset: Offset(0, 4),
-                              spreadRadius: 0,
-                            )
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.arrow_back_ios,
+                              color: Colors.white,
+                              size: verticalBlock * 20,
+                            ),
+                            Image.asset(
+                              'assets/qr_code_homepage.png',
+                              height: verticalBlock * 24,
+                              fit: BoxFit.contain,
+                            ),
+                            SizedBox(width: horizontalBlock * 12),
                           ],
                         ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Column(
+                      ),
+                      // SizedBox(width: horizontalBlock * 20),
+                    ],
+                  ),
+                  SizedBox(height: verticalBlock * 32),
+                  text(
+                    'Ongoing Event',
+                    color: Colors.white,
+                    fontSize: verticalBlock * 20,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  SizedBox(height: verticalBlock * 21),
+                  Padding(
+                    padding: EdgeInsets.only(right: horizontalBlock * 20),
+                    child: Container(
+                      // height: verticalBlock * 157,
+                      padding: EdgeInsets.only(
+                        left: horizontalBlock * 13,
+                        top: verticalBlock * 10,
+                        right: verticalBlock * 10,
+                        bottom: verticalBlock * 11,
+                      ),
+                      decoration: ShapeDecoration(
+                        gradient: LinearGradient(
+                          begin: const Alignment(1.00, 0.00),
+                          end: const Alignment(-1, 0),
+                          colors: [
+                            Colors.white.withOpacity(0.05000000074505806),
+                            const Color(0x752FF7F7)
+                          ],
+                        ),
+                        shape: RoundedRectangleBorder(
+                          side: const BorderSide(
+                              width: 1, color: Color(0xFF81ECFC)),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        shadows: const [
+                          BoxShadow(
+                            color: Color(0x3F000000),
+                            blurRadius: 4,
+                            offset: Offset(0, 4),
+                            spreadRadius: 0,
+                          )
+                        ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsets.only(left: horizontalBlock * 4),
+                                child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     headingText(
                                       'Eye Spy Squid',
-                                      fontSize: 20,
+                                      fontSize: verticalBlock * 20,
                                     ),
                                     SizedBox(height: verticalBlock * 2),
                                     text(
                                       'AI/ML',
-                                      fontSize: 15,
+                                      fontSize: verticalBlock * 15,
                                       color: white,
                                       fontWeight: FontWeight.w500,
                                     ),
                                     SizedBox(height: verticalBlock * 25),
                                     SizedBox(
-                                      width: horizontalBlock * 220,
+                                      width: width * 0.5,
                                       child: text(
                                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore',
                                         color: Colors.white,
@@ -163,30 +160,37 @@ class HomePage extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                const Spacer(),
-                                Column(
-                                  children: [
-                                    text(
-                                      '107 registered',
-                                      fontSize: verticalBlock * 11,
-                                      fontWeight: FontWeight.w500,
-                                      color: accentColor,
-                                    ),
-                                    SizedBox(height: verticalBlock * 81),
-                                    InkWell(
-                                      onTap: () {
-                                        // Get.to(() => EventDetails());
-                                      },
-                                      child: Container(
-                                        height: verticalBlock * 32,
-                                        width: horizontalBlock * 102,
-                                        decoration: ShapeDecoration(
-                                          shape: RoundedRectangleBorder(
-                                            side: BorderSide(
-                                                width: 1, color: accentColor),
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                          ),
+                              ),
+                              const Spacer(),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  text(
+                                    '107 registered',
+                                    fontSize: verticalBlock * 11,
+                                    fontWeight: FontWeight.w500,
+                                    color: accentColor,
+                                  ),
+                                  SizedBox(height: verticalBlock * 81),
+                                  InkWell(
+                                    onTap: () {
+                                      // Get.to(() => EventDetails());
+                                    },
+                                    child: Container(
+                                      // height: verticalBlock * 32,
+                                      // width: horizontalBlock * 102,
+                                      decoration: ShapeDecoration(
+                                        shape: RoundedRectangleBorder(
+                                          side: BorderSide(
+                                              width: 1, color: accentColor),
+                                          borderRadius: BorderRadius.circular(
+                                              verticalBlock * 20),
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal: horizontalBlock * 24,
+                                          vertical: verticalBlock * 6,
                                         ),
                                         child: Center(
                                           child: text(
@@ -198,65 +202,66 @@ class HomePage extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
-                    SizedBox(height: verticalBlock * 31),
-                    text(
-                      'Events Memories',
-                      color: Colors.white,
+                  ),
+                  SizedBox(height: verticalBlock * 31),
+                  text(
+                    'Events Memories',
+                    color: Colors.white,
+                    fontSize: verticalBlock * 20,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  SizedBox(height: verticalBlock * 20),
+                  SizedBox(
+                    height: verticalBlock * 110,
+                    child: ListView.separated(
+                      separatorBuilder: (context, index) => SizedBox(
+                        width: horizontalBlock * 8,
+                      ),
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 3,
+                      itemBuilder: (context, index) {
+                        return PastEventsWidget(
+                          assetName: homePageEventsAssetList[index],
+                          eventName: homePageEventsNameList[index],
+                        );
+                      },
+                    ),
+                  ),
+                  SizedBox(height: verticalBlock * 30),
+                  text('Our blogs',
                       fontSize: verticalBlock * 20,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    SizedBox(height: verticalBlock * 20),
-                    SizedBox(
-                      height: verticalBlock * 110,
-                      child: ListView.separated(
-                          separatorBuilder: (context, index) => SizedBox(
-                                width: horizontalBlock * 8,
-                              ),
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 3,
-                          itemBuilder: (context, index) {
-                            return PastEventsWidget(
-                              assetName: homePageEventsAssetList[index],
-                              eventName: homePageEventsNameList[index],
-                            );
-                          }),
-                    ),
-                    SizedBox(height: verticalBlock * 30),
-                    text('Our blogs',
-                        fontSize: verticalBlock * 20,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500),
-                    SizedBox(height: verticalBlock * 20),
-                    ListView.separated(
-                        separatorBuilder: (context, index) => SizedBox(
-                              height: verticalBlock * 13,
-                            ),
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: 3,
-                        itemBuilder: (context, index) {
-                          return BlogsWidget(
-                            assetName: homePageBlogsAssetList[index],
-                            blogTitle: homePageBlogsNameList[index],
-                            blogDescription:
-                                homePageBlogsDescriptionList[index],
-                          );
-                        }),
-                  ],
-                ),
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500),
+                  SizedBox(height: verticalBlock * 20),
+                  ListView.separated(
+                      separatorBuilder: (context, index) => SizedBox(
+                            height: verticalBlock * 13,
+                          ),
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: 3,
+                      itemBuilder: (context, index) {
+                        return BlogsWidget(
+                          assetName: homePageBlogsAssetList[index],
+                          blogTitle: homePageBlogsNameList[index],
+                          blogDescription: homePageBlogsDescriptionList[index],
+                          horizontalBlock: horizontalBlock,
+                          verticalBlock: verticalBlock,
+                        );
+                      }),
+                ],
               ),
             ),
-          ],
+          ),
         ),
-        bottomNavigationBar: CustomBottomNavBar(),
       ),
     );
   }

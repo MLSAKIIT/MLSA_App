@@ -19,31 +19,29 @@ class PastEventsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final double verticalBlock = MediaQuery.of(context).size.height / 997;
     final double horizontalBlock = MediaQuery.of(context).size.width / 423;
-    return Stack(
-      children: [
-        SizedBox(
-          width: horizontalBlock * 214,
-          height: verticalBlock * 115,
-          child: Image.asset(
-            assetName,
-            fit: BoxFit.fill,
+    return Container(
+      width: horizontalBlock * 214,
+      height: verticalBlock * 109,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(assetName),
+          fit: BoxFit.fill,
+        ),
+      ),
+      child: Padding(
+        padding: EdgeInsets.only(
+          left: horizontalBlock * 12,
+          bottom: verticalBlock * 10,
+        ),
+        child: Align(
+          alignment: Alignment.bottomLeft,
+          child: text(
+            eventName,
+            fontSize: verticalBlock * 12,
+            fontWeight: FontWeight.w400,
           ),
         ),
-        Padding(
-          padding: EdgeInsets.only(
-            left: horizontalBlock * 12,
-            bottom: verticalBlock * 10,
-          ),
-          child: Align(
-            alignment: Alignment.bottomLeft,
-            child: text(
-              eventName,
-              fontSize: verticalBlock * 14,
-              fontWeight: FontWeight.w400,
-            ),
-          ),
-        )
-      ],
+      ),
     );
   }
 }
