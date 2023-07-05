@@ -5,7 +5,7 @@ import 'package:hexcolor/hexcolor.dart';
 
 Color white = Colors.white; // Get white color
 Color black = Colors.black; // Get black color
-
+Color navBarIconColor = HexColor("1EA0FF");
 FontWeight bold = FontWeight.bold; // Get bold font weight
 
 HexColor accentColor = HexColor("4DE4FB"); // Get accent(major color used) color

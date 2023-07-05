@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 import '../../constant/constants.dart';
+import '../../controller/controller.dart';
 import '../widgets/bottom_nav_bar.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -25,82 +26,89 @@ class _ProfilePageState extends State<ProfilePage> {
     var w = MediaQuery.of(context).size.width;
     //var deviceData = MediaQuery.of(context);
 
-    return Scaffold(
-      bottomNavigationBar: CustomBottomNavBar(),
-      backgroundColor: black,
-      appBar: AppBar(
-        backgroundColor: black,
-        elevation: 0,
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.arrow_back_ios),
-        ),
-      ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          children: [
-            const Padding(
-              padding: EdgeInsets.all(10.0),
+    return WillPopScope(
+      onWillPop: () async {
+        Controller.pageControllerIndex.value = 0;
+        return false;
+      },
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: black,
+          appBar: AppBar(
+            backgroundColor: black,
+            elevation: 0,
+            leading: IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.arrow_back_ios),
             ),
-            Container(
-              height: h * 0.15,
-              width: h * 0.15,
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 238, 237, 237),
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-            SizedBox(
-              height: h * 0.04,
-            ),
-            _TextBlocks(
-              fieldtext: 'Name',
-              controller: nameController,
-              height: h,
-              width: w,
-            ),
-            _TextBlocks(
-              fieldtext: 'Roll No',
-              controller: rollnoController,
-              height: h,
-              width: w,
-            ),
-            _TextBlocks(
-              fieldtext: 'E-mail',
-              controller: emailController,
-              height: h,
-              width: w,
-            ),
-            _TextBlocks(
-              fieldtext: 'Mobile',
-              controller: mobileController,
-              height: h,
-              width: w,
-            ),
-            _TextBlocks(
-              fieldtext: 'Branch',
-              controller: branchController,
-              height: h,
-              width: w,
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            Center(
-              child: Container(
-                width: w,
-                height: h * 0.05,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: text('Submit',
-                      color: Colors.white,
-                      fontSize: h * 0.02,
-                      fontWeight: FontWeight.w400),
+          ),
+          body: SingleChildScrollView(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.all(10.0),
                 ),
-              ),
+                Container(
+                  height: h * 0.15,
+                  width: h * 0.15,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 238, 237, 237),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                SizedBox(
+                  height: h * 0.04,
+                ),
+                _TextBlocks(
+                  fieldtext: 'Name',
+                  controller: nameController,
+                  height: h,
+                  width: w,
+                ),
+                _TextBlocks(
+                  fieldtext: 'Roll No',
+                  controller: rollnoController,
+                  height: h,
+                  width: w,
+                ),
+                _TextBlocks(
+                  fieldtext: 'E-mail',
+                  controller: emailController,
+                  height: h,
+                  width: w,
+                ),
+                _TextBlocks(
+                  fieldtext: 'Mobile',
+                  controller: mobileController,
+                  height: h,
+                  width: w,
+                ),
+                _TextBlocks(
+                  fieldtext: 'Branch',
+                  controller: branchController,
+                  height: h,
+                  width: w,
+                ),
+                const SizedBox(
+                  height: 25,
+                ),
+                Center(
+                  child: Container(
+                    width: w,
+                    height: h * 0.05,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: text('Submit',
+                          color: Colors.white,
+                          fontSize: h * 0.02,
+                          fontWeight: FontWeight.w400),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

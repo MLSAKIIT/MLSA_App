@@ -10,10 +10,10 @@ class AboutUsExpandedContainer extends StatelessWidget {
     required this.textAlign,
     this.descriptionAlignment = Alignment.centerLeft,
   });
-  Image logo;
-  String details;
-  String title;
-  TextAlign textAlign;
+  final Image logo;
+  final String details;
+  final String title;
+  final TextAlign textAlign;
   Alignment descriptionAlignment = Alignment.centerLeft;
   @override
   Widget build(BuildContext context) {
