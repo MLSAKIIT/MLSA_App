@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gradients/gradients.dart';
 import 'package:list_wheel_scroll_view_nls/list_wheel_scroll_view_nls.dart';
+import 'package:mlsa_app/views/widgets/domain_widget.dart';
 import 'dart:math' as math;
 import '../../constant/constants.dart';
 import '../../controller/controller.dart';
 import '../widgets/about_us_animated_container.dart';
 import '../widgets/bottom_nav_bar.dart';
+import '../widgets/leads_widgets.dart';
 
 class AboutPage extends StatefulWidget {
   AboutPage({super.key});
@@ -70,8 +72,26 @@ class _AboutPageState extends State<AboutPage> {
     });
   }
 
+  ScrollController leadsScrollController = FixedExtentScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  List<String> leadsNames = [
+    'Anvit Dubey',
+    'Prashant Upadhyay',
+    'Saniya Bhargav',
+    'Sagar Satapathy',
+    'Eshaan Anand',
+    'Swastika Bishnoi',
+  ];
+
   @override
   Widget build(BuildContext context) {
+    // leadsScrollController.jumpTo(
+    //     (MediaQuery.of(context).size.width * 0.5) * (leadsNames.length / 2));
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return WillPopScope(
@@ -96,7 +116,7 @@ class _AboutPageState extends State<AboutPage> {
                           Container(
                             height: height,
                             width: width * 5,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 gradient: RadialGradientPainter(
                                     colors: [Color.fromRGBO(14, 162, 246, 0.9)],
                                     focal: Alignment
@@ -128,6 +148,8 @@ class _AboutPageState extends State<AboutPage> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       child: Column(
+                        // mainAxisAlignment: MainAxisAlignment.start,
+                        // crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
                             'About Us',
@@ -136,14 +158,13 @@ class _AboutPageState extends State<AboutPage> {
                               color: Colors.white,
                             ),
                           ),
-
                           Padding(
-                            padding:
-                                EdgeInsets.only(top: 20, bottom: 20, left: 20),
+                            padding: const EdgeInsets.only(
+                                top: 20, bottom: 20, left: 20),
                             child: Column(
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(
+                                const Padding(
+                                  padding: EdgeInsets.only(
                                       top: 8.0, left: 8.0, right: 1),
                                   child: Text(
                                     'MLSA KIIT Chapter, Microsoft Learn Student Ambassador offers students the chance to develop tech skills through Microsoft... ',
@@ -398,227 +419,58 @@ class _AboutPageState extends State<AboutPage> {
                                   fontSize: 17),
                             ),
                           ),
-                          //Column(                   //GestureDetector(
-                          //onTap: () => Navigator.push(
-                          // context,
-                          //MaterialPageRoute(
-                          //builder: (context) =>,
                           Wrap(
                             direction: Axis.horizontal,
-                            children: <Widget>[
+                            children: const <Widget>[
                               Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Container(
-                                    height: height * 0.17,
-                                    width: width * 0.35,
-                                    decoration: BoxDecoration(
-                                      color: Colors.grey.withOpacity(0.2),
-                                      borderRadius: BorderRadius.circular(12),
-                                      image: const DecorationImage(
-                                          image: AssetImage(
-                                              'assets/domains/1.png'),
-                                          alignment: Alignment(0.1, -0.5)),
-                                    ),
-                                    padding: const EdgeInsets.all(6),
-                                    child: const Center(
-                                        child: Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 100,
-                                          bottom: 10,
-                                          left: 12,
-                                          right: 12),
-                                      child: Text(
-                                        'Technical',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: 14,
-                                        ),
-                                      ),
-                                    ))),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Container(
-                                    height: height * 0.17,
-                                    width: width * 0.35,
-                                    decoration: BoxDecoration(
-                                      color: Colors.grey.withOpacity(0.2),
-                                      borderRadius: BorderRadius.circular(12),
-                                      image: const DecorationImage(
-                                          image: AssetImage(
-                                              'assets/domains/2.png'),
-                                          alignment: Alignment(0.1, -0.5)),
-                                    ),
-                                    padding: const EdgeInsets.all(6),
-                                    child: const Center(
-                                        child: Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 100,
-                                          bottom: 10,
-                                          left: 12,
-                                          right: 12),
-                                      child: Text(
-                                        'Creative',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: 14,
-                                        ),
-                                      ),
-                                    ))),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Container(
-                                    height: height * 0.17,
-                                    width: width * 0.35,
-                                    decoration: BoxDecoration(
-                                      color: Colors.grey.withOpacity(0.2),
-                                      borderRadius: BorderRadius.circular(12),
-                                      image: const DecorationImage(
-                                          image: AssetImage(
-                                              'assets/domains/3.png'),
-                                          alignment: Alignment(0.1, -0.5)),
-                                    ),
-                                    padding: const EdgeInsets.all(6),
-                                    child: const Center(
-                                        child: Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 100,
-                                          bottom: 10,
-                                          left: 12,
-                                          right: 12),
-                                      child: Text(
-                                        'Operations',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: 14,
-                                        ),
-                                      ),
-                                    ))),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Container(
-                                    height: height * 0.17,
-                                    width: width * 0.35,
-                                    decoration: BoxDecoration(
-                                      color: Colors.grey.withOpacity(0.2),
-                                      borderRadius: BorderRadius.circular(12),
-                                      image: const DecorationImage(
-                                          image: AssetImage(
-                                              'assets/domains/4.png'),
-                                          alignment: Alignment(0.1, -0.5)),
-                                    ),
-                                    padding: const EdgeInsets.all(6),
-                                    child: const Center(
-                                        child: Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 100,
-                                          bottom: 10,
-                                          left: 12,
-                                          right: 12),
-                                      child: Text(
-                                        'Marketing',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: 14,
-                                        ),
-                                      ),
-                                    ))),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Container(
-                                    height: height * 0.17,
-                                    width: width * 0.35,
-                                    decoration: BoxDecoration(
-                                      color: Colors.grey.withOpacity(0.2),
-                                      borderRadius: BorderRadius.circular(12),
-                                      image: const DecorationImage(
-                                          image: AssetImage(
-                                              'assets/domains/5.png'),
-                                          alignment: Alignment(0.1, -0.5)),
-                                    ),
-                                    padding: const EdgeInsets.all(6),
-                                    child: const Center(
-                                        child: Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 100,
-                                          bottom: 10,
-                                          left: 12,
-                                          right: 12),
-                                      child: Text(
-                                        'Graphics',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: 14,
-                                        ),
-                                      ),
-                                    ))),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Container(
-                                  height: height * 0.17,
-                                  width: width * 0.35,
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey.withOpacity(0.2),
-                                    borderRadius: BorderRadius.circular(12),
-                                    image: const DecorationImage(
-                                        image:
-                                            AssetImage('assets/domains/6.png'),
-                                        alignment: Alignment(0.1, -0.5)),
-                                  ),
-                                  padding: const EdgeInsets.all(6),
-                                  child: const Center(
-                                    child: Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 100,
-                                          bottom: 10,
-                                          left: 12,
-                                          right: 12),
-                                      child: Text(
-                                        'Youtube',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: 14,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
+                                padding: EdgeInsets.all(10.0),
+                                child: DomainWidget(
+                                  domain: 'Technical',
+                                  domainImagePath: 'assets/domains/1.png',
                                 ),
                               ),
-
-                              // Expanded(
-                              // child: ListView(scrollDirection: Axis.horizontal,
-                              //children: [
-                              //Padding(padding: EdgeInsets.all(8.0),
-                              //child: Container(
-                              //height: height * 0.1,
-                              //width: width*0.1,
-                              //decoration: BoxDecoration(
-                              // shape: BoxShape.circle,
-                              //color: Colors.white,
-
-                              //),
-                              //),
-                              //),
-
-                              // ],)
-                              //)
+                              Padding(
+                                padding: EdgeInsets.all(10.0),
+                                child: DomainWidget(
+                                  domain: 'Creative',
+                                  domainImagePath: 'assets/domains/2.png',
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.all(10.0),
+                                child: DomainWidget(
+                                  domain: 'Operations',
+                                  domainImagePath: 'assets/domains/3.png',
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.all(10.0),
+                                child: DomainWidget(
+                                  domain: 'Marketing',
+                                  domainImagePath: 'assets/domains/4.png',
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.all(10.0),
+                                child: DomainWidget(
+                                  domain: 'Graphics',
+                                  domainImagePath: 'assets/domains/5.png',
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.all(10.0),
+                                child: DomainWidget(
+                                  domain: 'YouTube',
+                                  domainImagePath: 'assets/domains/6.png',
+                                ),
+                              ),
                             ],
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 10),
                             child: Column(
-                              children: [
-                                const Text(
+                              children: const [
+                                Text(
                                   'Our Leads',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -628,131 +480,22 @@ class _AboutPageState extends State<AboutPage> {
                               ],
                             ),
                           ),
-
                           Padding(
-                            padding: EdgeInsets.all(5.0),
-                            child: Container(
+                            padding: const EdgeInsets.all(0.0),
+                            child: SizedBox(
                               height: height * 0.2,
                               child: ListWheelScrollViewX(
                                 scrollDirection: Axis.horizontal,
-                                itemExtent: 100,
-                                diameterRatio: 2,
-                                children: [
-                                  Container(
-                                    decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.white,
-                                        image: DecorationImage(
-                                            image:
-                                                AssetImage('mlsa_logo.png'))),
-                                    height: height * 2,
+                                itemExtent: width * 0.45,
+                                squeeze: 0.9,
+                                children: List.generate(
+                                  leadsNames.length,
+                                  (index) => LeadsWidget(
+                                    image:
+                                        'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                                    name: leadsNames[index],
                                   ),
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.only(top: 15.0, bottom: 2.0),
-                                    child: Text(
-                                      'Anvit Dubey',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
-                                    ),
-                                  ),
-                                  Container(
-                                    decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.white,
-                                        image: DecorationImage(
-                                            image:
-                                                AssetImage('mlsa_logo.png'))),
-                                    height: height * 2,
-                                  ),
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.only(top: 15.0, bottom: 2.0),
-                                    child: Text(
-                                      'Prashant Upadhyay',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
-                                    ),
-                                  ),
-                                  Container(
-                                    decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.white,
-                                        image: DecorationImage(
-                                            image:
-                                                AssetImage('mlsa_logo.png'))),
-                                    height: height * 2,
-                                  ),
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.only(top: 15.0, bottom: 2.0),
-                                    child: Text(
-                                      'Sania Bhargav',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
-                                    ),
-                                  ),
-                                  Container(
-                                    decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.white,
-                                        image: DecorationImage(
-                                            image:
-                                                AssetImage('mlsa_logo.png'))),
-                                    height: height * 2,
-                                  ),
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.only(top: 15.0, bottom: 2.0),
-                                    child: Text(
-                                      'Sagar Satapathy',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
-                                    ),
-                                  ),
-                                  Container(
-                                    decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.white,
-                                        image: DecorationImage(
-                                            image:
-                                                AssetImage('mlsa_logo.png'))),
-                                    height: height * 2,
-                                  ),
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.only(top: 15.0, bottom: 2.0),
-                                    child: Text(
-                                      'Eshaan Anand',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
-                                    ),
-                                  ),
-                                  Container(
-                                    decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.white,
-                                        image: DecorationImage(
-                                            image:
-                                                AssetImage('mlsa_logo.png'))),
-                                    height: height * 2,
-                                  ),
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.only(top: 15.0, bottom: 2.0),
-                                    child: Text(
-                                      'Swastika Bishnoi',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
-                                    ),
-                                  ),
-                                ],
+                                ),
                               ),
                             ),
                           )

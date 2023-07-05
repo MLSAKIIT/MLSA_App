@@ -3,13 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'dart:ui' as ui;
 import '../../constant/constants.dart';
 import '../../controller/controller.dart';
-import '../pages/about_page.dart';
-import '../pages/coupons_page.dart';
-import '../pages/home_page.dart';
-import '../pages/profile_page.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
   const CustomBottomNavBar({super.key});
