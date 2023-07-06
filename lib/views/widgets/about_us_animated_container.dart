@@ -19,79 +19,84 @@ class AboutUsExpandedContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    return Container(
-      height: height * 0.13,
-      // width: 140,
-      width: width * 0.8,
+    return Padding(
+      padding: const EdgeInsets.only(right: 3.0, left: 3.0),
+      child: Container(
+        height: height * 0.13,
+        // width: 140,
+        width: width * 0.8,
 
-      decoration: BoxDecoration(
-        shape: BoxShape.rectangle,
-        color: Colors.grey.withOpacity(0.2),
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              if (descriptionAlignment != Alignment.centerLeft)
-                SizedBox(
-                  key: key,
-                  height: height * 0.13,
-                  width: width * 0.45,
-                  child: Padding(
-                    padding: const EdgeInsets.all(0.0),
-                    child: Center(
-                      child: AutoSizeText(
-                        details,
-                        textAlign: TextAlign.left,
-                        style: const TextStyle(
-                          color: Colors.white,
+        decoration: BoxDecoration(
+          shape: BoxShape.rectangle,
+          color: Colors.grey.withOpacity(0.2),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                if (descriptionAlignment != Alignment.centerLeft)
+                  SizedBox(
+                    key: key,
+                    height: height * 0.13,
+                    width: width * 0.45,
+                    child: Padding(
+                      padding: const EdgeInsets.all(0.0),
+                      child: Center(
+                        child: AutoSizeText(
+                          details,
+                          textAlign: TextAlign.left,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            height: 1.2,
+                          ),
+                          maxLines: 5,
                         ),
-                        maxLines: 5,
                       ),
                     ),
                   ),
-                ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  logo,
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
-                    child: Text(
-                      title,
-                      textAlign: textAlign,
-                      style: TextStyle(color: Colors.cyan[200]),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    logo,
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8.0),
+                      child: Text(
+                        title,
+                        textAlign: textAlign,
+                        style: TextStyle(color: Colors.cyan[200]),
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              if (descriptionAlignment == Alignment.centerLeft)
-                SizedBox(
-                  key: key,
-                  height: height * 0.13,
-                  width: width * 0.45,
-                  child: Padding(
-                    padding: const EdgeInsets.all(0.0),
-                    child: Center(
-                      child: AutoSizeText(
-                        details,
-                        textAlign: TextAlign.left,
-                        style: const TextStyle(
-                          color: Colors.white,
+                  ],
+                ),
+                if (descriptionAlignment == Alignment.centerLeft)
+                  SizedBox(
+                    key: key,
+                    height: height * 0.13,
+                    width: width * 0.45,
+                    child: Padding(
+                      padding: const EdgeInsets.all(0.0),
+                      child: Center(
+                        child: AutoSizeText(
+                          details,
+                          textAlign: TextAlign.left,
+                          style: const TextStyle(
+                            height: 1.2,
+                            color: Colors.white,
+                          ),
+                          maxLines: 5,
                         ),
-                        maxLines: 5,
                       ),
                     ),
                   ),
-                ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -43,7 +43,7 @@ dependencies:
   device_preview: ^1.1.0
   qr_flutter: ^4.1.0
   gradients: 
-  list_wheel_scroll_view_nls:
+
   cached_network_image: ^3.2.3
   #url_launcher:
 
