@@ -111,3 +111,25 @@ Text headingText(
     ),
   );
 }
+
+List<String> homePageEventsAssetList = [
+  'assets/home_page/flutter_verse_image.png',
+  'assets/home_page/front_end_with_benefits_image.png',
+  'assets/home_page/flutter_verse_image.png'
+];
+List<String> homePageEventsNameList = [
+  'Flutter Verse',
+  'Front-End with Benefit',
+  'Flutter Verse'
+];
+List<String> homePageBlogsAssetList = [
+  'assets/home_page/blogs_image_1.png',
+  'assets/home_page/blogs_image_2.png',
+  'assets/home_page/blogs_image_1.png'
+];
+List<String> homePageBlogsNameList = ['DragGAN:', 'AI', 'DragGAN:'];
+List<String> homePageBlogsDescriptionList = [
+  'Unleashing the magic of AI art',
+  'Lorem ipsum dolor sit amet',
+  'Unleashing the magic of AI art'
+];

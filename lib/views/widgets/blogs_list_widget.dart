@@ -1,83 +1,108 @@
 import 'package:flutter/material.dart';
+import 'package:mlsa_app/constant/constants.dart';
 
-class ScrollableBlogsList extends StatelessWidget {
-  const ScrollableBlogsList(
-      {Key? key, required this.height, required this.width})
-      : super(key: key);
+class BlogsWidget extends StatelessWidget {
+  const BlogsWidget({
+    super.key,
+    required this.assetName,
+    required this.blogTitle,
+    required this.blogDescription,
+    required this.verticalBlock,
+    required this.horizontalBlock,
+  });
 
-  final double height;
-  final double width;
+  final String assetName;
+  final String blogTitle;
+  final String blogDescription;
+  final String blogAuthor = 'Someone';
+  final String blogWebsite = 'Medium';
+  final double verticalBlock;
+  final double horizontalBlock;
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Implement scrollable past events from api
-    return SizedBox(
-        height: height,
-        width: width,
-        child: ListView(
-          scrollDirection: Axis.horizontal,
-          children: [
-            Container(
-              height: height * 0.9,
-              width: width * 0.4,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(20),
+    // final double verticalBlock = MediaQuery.of(context).size.height / 997;
+    // final double horizontalBlock = MediaQuery.of(context).size.width / 423;
+    return Padding(
+      padding: const EdgeInsets.only(right: 20),
+      child: Column(
+        children: [
+          Container(
+            // width: horizontalBlock * 423,
+            height: verticalBlock * 56,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(assetName),
+                fit: BoxFit.cover,
+              ),
+              ),
+          ),
+          Container(
+            height: verticalBlock * 75,
+            // width: horizontalBlock * 423,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(5),
+            ),
+            child: Row(
+              children: [
+                SizedBox(
+                  width: horizontalBlock * 11,
                 ),
-              ),
-              child: Stack(
-                children: [
-                  Image.asset(
-                    'assets/mlsa_logo_big.png',
-                    fit: BoxFit.contain,
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Container(
-              height: height * 0.9,
-              width: width * 0.4,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(20),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    text(
+                      blogTitle,
+                      color: black,
+                      fontSize: verticalBlock * 17.5,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    SizedBox(
+                      height: verticalBlock,
+                    ),
+                    text(
+                      blogDescription,
+                      color: black,
+                      fontSize: verticalBlock * 10.5,
+                      fontWeight: FontWeight.w400,
+                    )
+                  ],
                 ),
-              ),
-              child: Stack(
-                children: [
-                  Image.asset(
-                    'assets/mlsa_logo_big.png',
-                    fit: BoxFit.contain,
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Container(
-              height: height * 0.9,
-              width: width * 0.4,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(20),
+                const Spacer(),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    SizedBox(
+                      height: verticalBlock * 5,
+                    ),
+                    text(
+                      "By $blogAuthor",
+                      fontSize: verticalBlock * 9,
+                      fontWeight: FontWeight.w300,
+                      color: black,
+                    ),
+                    const Spacer(),
+                    Image.asset(
+                      'assets/home_page/medium_logo.png',
+                      // width: horizontalBlock * 94,
+                      height: verticalBlock * 18,
+                      fit: BoxFit.contain,
+                    ),
+                    SizedBox(
+                      height: verticalBlock * 5,
+                    ),
+                  ],
                 ),
-              ),
-              child: Stack(
-                children: [
-                  Image.asset(
-                    'assets/mlsa_logo_big.png',
-                    fit: BoxFit.contain,
-                  ),
-                ],
-              ),
+                SizedBox(
+                  width: horizontalBlock * 5,
+                ),
+              ],
             ),
-          ],
-        ));
+          )
+        ],
+      ),
+    );
   }
 }
